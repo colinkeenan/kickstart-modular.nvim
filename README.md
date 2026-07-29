@@ -2,7 +2,7 @@
 
 ## Introduction
 
-*This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*
+*This is a fork of [dam9000/kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim) as a starting point for my own configuration*
 
 A starting point for Neovim that is:
 
@@ -63,17 +63,10 @@ Neovim's configurations are located under the following paths, depending on your
 
 #### Recommended Step
 
-Create your own copy of this repo using GitHub's
-["Use this template"](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
-button so that you have your own copy that you can modify, then install by
-cloning your new repo to your machine using one of the commands below,
-depending on your OS.
-
-Alternatively, you can [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+You can [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
 this repo if you prefer an easy upstream sync path (e.g., keeping your config
 on a separate branch and fast-forwarding `master` from upstream). See the
-[discussion in #1740](https://github.com/nvim-lua/kickstart.nvim/issues/1740)
-for the tradeoffs between the two approaches.
+[discussion in #1740](https://github.com/nvim-lua/kickstart.nvim/issues/1740).
 
 > [!NOTE]
 > Your repo's URL will be something like this:
