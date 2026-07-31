@@ -43,15 +43,16 @@ External Requirements:
   - etc.
 
 > [!NOTE]
-> See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
+> See [Install Recipes](#install-recipes) for additional Windows and Linux specific notes
 > and quick install snippets
 
 ### Install Kickstart
 
 > [!NOTE]
-> [Backup](#FAQ) your previous configuration (if any exists)
+> [Backup](#faq) your previous configuration (if any exists)
 
-Neovim's configurations are located under the following paths, depending on your OS:
+Neovim's configurations are located under the following paths,
+depending on your OS:
 
 | OS                   | PATH                                      |
 | :------------------- | :---------------------------------------- |
@@ -93,13 +94,13 @@ git clone https://github.com/dam9000/kickstart-modular.nvim.git "${XDG_CONFIG_HO
 
 If you're using `cmd.exe`:
 
-```
+```cmd
 git clone https://github.com/dam9000/kickstart-modular.nvim.git "%localappdata%\nvim"
 ```
 
 If you're using `powershell.exe`
 
-```
+```powershell
 git clone https://github.com/dam9000/kickstart-modular.nvim.git "${env:LOCALAPPDATA}\nvim"
 ```
 
@@ -141,13 +142,16 @@ examples of adding popularly requested plugins.
   - Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
     to maintain multiple configurations. For example, you can install the kickstart
     configuration in `~/.config/nvim-kickstart` and create an alias:
+
     ```
     alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
     ```
+
     When you run Neovim using `nvim-kickstart` alias it will use the alternative
     config directory and the matching local directory
     `~/.local/share/nvim-kickstart`. You can apply this approach to any Neovim
     distribution that you would like to try out.
+
 - What if I want to "uninstall" this configuration:
   - Remove your config directory and local data directory (for example,
     `~/.config/nvim` and `~/.local/share/nvim`).
@@ -189,7 +193,7 @@ if vim.fn.executable 'make' == 1 or vim.fn.executable 'cmake' == 1 then
 end
 ```
 
-2. In the `PackChanged` hook, use CMake when `make` is unavailable:
+1. In the `PackChanged` hook, use CMake when `make` is unavailable:
 
 ```lua
 if name == 'telescope-fzf-native.nvim' then
@@ -218,7 +222,7 @@ the easiest way is to use choco:
 winget install --accept-source-agreements chocolatey.chocolatey
 ```
 
-2. install all requirements using choco, exit the previous cmd and
+1. install all requirements using choco, exit the previous cmd and
    open a new one so that choco path is set, and run in cmd as **admin**:
 
 ```
@@ -290,9 +294,8 @@ method](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-pac
 recommended by neovim is significantly behind. If that is the case for you,
 pick one of the following methods that are known to deliver fresh neovim versions very quickly.
 They have been picked for their popularity and because they make installing and updating
-neovim to the latest versions easy. You can also find more detail about the
-available methods being discussed
-[here](https://github.com/nvim-lua/kickstart.nvim/issues/1583).
+neovim to the latest versions easy. You can also find [more detail about the
+available methods being discussed](https://github.com/nvim-lua/kickstart.nvim/issues/1583).
 
 <details><summary>Bob</summary>
 
