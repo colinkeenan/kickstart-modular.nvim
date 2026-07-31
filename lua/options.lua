@@ -8,7 +8,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 --  See `:help vim.o`
@@ -22,8 +22,11 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
--- Disable mouse to allow middle-click paste
-vim.o.mouse = ''
+vim.o.mouse = 'a'
+-- Disable mouse to allow middle-click paste if 'No clipboard tool found'
+-- vim.o.mouse = ''
+-- but better to just install wl-clipboard and add
+-- export WAYLAND_DISPLAY=wayland-0 to .bashrc or .zshrc or whatever
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
@@ -38,6 +41,15 @@ vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 vim.o.breakindent = true
 
 -- Enable undo/redo changes even after closing and reopening a file
+-- and set undo directory as done at
+-- https://github.com/Sin-cy/nvim-scratch/blob/main/lua/options.lua
+-- explained in https://youtu.be/XQuNoprFW38
+-- How To Setup Minimal Neovim 0.12 Config Gude From Scratch
+-- He doesn't explain setting swapfile and backup to false, but I
+-- guess they wouldn't be needed with undofile true
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = vim.fn.stdpath 'data' .. '/undodir'
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
