@@ -187,25 +187,25 @@ If you want a CMake-only setup, customize `init.lua` in two places:
 
 1. Include `telescope-fzf-native.nvim` when `cmake` is available:
 
-```lua
-if vim.fn.executable 'make' == 1 or vim.fn.executable 'cmake' == 1 then
-  table.insert(plugins, gh 'nvim-telescope/telescope-fzf-native.nvim')
-end
-```
+   ```lua
+   if vim.fn.executable 'make' == 1 or vim.fn.executable 'cmake' == 1 then
+     table.insert(plugins, gh 'nvim-telescope/telescope-fzf-native.nvim')
+   end
+   ```
 
 1. In the `PackChanged` hook, use CMake when `make` is unavailable:
 
-```lua
-if name == 'telescope-fzf-native.nvim' then
-  if vim.fn.executable 'make' == 1 then
-    run_build(name, { 'make' }, ev.data.path)
-  elseif vim.fn.executable 'cmake' == 1 then
-    run_build(name, { 'cmake', '-S.', '-Bbuild', '-DCMAKE_BUILD_TYPE=Release' }, ev.data.path)
-    run_build(name, { 'cmake', '--build', 'build', '--config', 'Release', '--target', 'install' }, ev.data.path)
-  end
-  return
-end
-```
+   ```lua
+   if name == 'telescope-fzf-native.nvim' then
+     if vim.fn.executable 'make' == 1 then
+       run_build(name, { 'make' }, ev.data.path)
+     elseif vim.fn.executable 'cmake' == 1 then
+       run_build(name, { 'cmake', '-S.', '-Bbuild', '-DCMAKE_BUILD_TYPE=Release' }, ev.data.path)
+       run_build(name, { 'cmake', '--build', 'build', '--config', 'Release', '--target', 'install' }, ev.data.path)
+     end
+     return
+   end
+   ```
 
 See `telescope-fzf-native` documentation for [build details](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation).
 
@@ -218,16 +218,16 @@ the easiest way is to use choco:
    either follow the instructions on the page or use winget,
    run in cmd as **admin**:
 
-```
-winget install --accept-source-agreements chocolatey.chocolatey
-```
+   ```
+   winget install --accept-source-agreements chocolatey.chocolatey
+   ```
 
 1. install all requirements using choco, exit the previous cmd and
    open a new one so that choco path is set, and run in cmd as **admin**:
 
-```
-choco install -y neovim git ripgrep wget fd unzip gzip mingw make tree-sitter
-```
+   ```
+   choco install -y neovim git ripgrep wget fd unzip gzip mingw make tree-sitter
+   ```
 
 </details>
 <details><summary>WSL (Windows Subsystem for Linux)</summary>
