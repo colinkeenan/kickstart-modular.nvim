@@ -38,13 +38,12 @@ require 'keymaps'
 require 'pack'
 require 'plugins'
 
--- In order to add plugins other than included with the Kickstart
-require 'custom.plugins'
+-- In order to add plugins other than included with the Kickstart edit lua/plugins.lua
 
--- Commented tokyonight from ./lua/plugins.lua and just set one of the installed cholorschemes here
--- See built-in/already installed colorschemes with :Telescope colorscheme
--- So far like: murphy, lunaperche, desert
-vim.cmd.colorscheme("murphy")
+-- Commented out tokyonight from ./lua/plugins.lua and just set one of the installed colorschemes
+-- here. See built-in/already installed colorschemes with :Telescope colorscheme
+-- Like: murphy, lunaperche, desert
+vim.cmd.colorscheme 'murphy'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

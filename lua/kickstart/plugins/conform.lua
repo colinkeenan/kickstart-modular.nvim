@@ -1,6 +1,31 @@
+vim.pack.add {
+  {
+    src = 'https://github.com/stevearc/conform.nvim',
+    config = function()
+      require('conform').setup {
+        formatters_by_ft = {
+          bash = { 'shfmt' },
+          c = { 'clang-format' },
+          html = { 'prettier' },
+          css = { 'prettier' },
+          lua = { 'stylua' },
+          markdown = { 'prettier' },
+          javascript = { 'prettier' },
+          typescript = { 'prettier' },
+          tsx = { 'prettier' },
+          json = { 'jq' }, -- jq is excellent for JSON formatting
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_format = 'fallback',
+        },
+      }
+    end,
+  },
+}
+--[[
 local function gh(repo) return 'https://github.com/' .. repo end
 
--- [[ Formatting ]]
 vim.pack.add { gh 'stevearc/conform.nvim' }
 require('conform').setup {
   notify_on_error = false,
@@ -31,5 +56,5 @@ require('conform').setup {
 }
 
 vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
-
+]]
 -- vim: ts=2 sts=2 sw=2 et

@@ -23,7 +23,7 @@ To check your neovim version, run `nvim --version` and make sure it is not
 below the latest
 ['stable'](https://github.com/neovim/neovim/releases/tag/stable) version. If
 your chosen install method only gives you an outdated version of neovim, find
-alternative [installation methods below](#alternative-neovim-installation-methods).
+[alternative installation methods below](#alternative-neovim-installation-methods).
 
 ### Install External Dependencies
 

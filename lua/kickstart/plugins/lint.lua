@@ -1,7 +1,36 @@
--- Linting
+vim.pack.add {
+  {
+    src = 'https://github.com/mfussenegger/nvim-lint',
+    config = function()
+      local lint = require("lint")
 
-vim.pack.add { 'https://github.com/mfussenegger/nvim-lint' }
+      lint.linters_by_ft = {
+        bash        = { "shellcheck" },
+        c           = { "clangtidy" }, -- or "cppcheck"
+        html        = { "htmlhint" },
+        css         = { "stylelint" },
+        lua         = { "luacheck" },
+        markdown    = { "markdownlint" },
+        javascript  = { "eslint_d" },
+        typescript  = { "eslint_d" },
+        tsx         = { "eslint_d" },
+        json        = { "jq" }, -- or "jsonlint"
+      }
 
+      local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+        group = lint_augroup,
+        callback = function()
+          if vim.bo.modifiable then
+            lint.try_lint()
+          end
+        end,
+      })
+    end,
+  }
+}
+
+--[[
 local lint = require 'lint'
 lint.linters_by_ft = {
   markdown = { 'markdownlint' }, -- Make sure to install `markdownlint` via mason / npm
@@ -51,3 +80,4 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
     if vim.bo.modifiable then lint.try_lint() end
   end,
 })
+--]]
