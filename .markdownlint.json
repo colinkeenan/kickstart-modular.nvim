@@ -45,6 +45,17 @@
     "indent": 2
   },
 
+  // Allow both * and _ for italics
+  "MD049": {
+    "style": "any"
+  },
+  
+  // Allow both ** and __ for bold
+  "MD050": {
+    "style": "any"
+  }
+
   // Allow inline emphasis inside headings
   "MD039": false
+
 }
