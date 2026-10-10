@@ -45,5 +45,8 @@ require 'plugins'
 -- Like: murphy, lunaperche, desert
 vim.cmd.colorscheme 'murphy'
 
+-- Added the following to use fold method marker instead of default (manual)
+vim.opt.foldmethod = 'marker'
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
